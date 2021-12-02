@@ -8,5 +8,15 @@ pipeline {
                 sh 'docker --version'
             }
         }
+        stage('docker build') {
+            step {
+                echo 'Start build docker image'
+
+                script {
+                    def customImage = docker.build("my-image:docker:20.10.11-dind")
+                    customImage.push()
+                }
+            }
+        }
     }
 }
