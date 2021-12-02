@@ -11,6 +11,7 @@ pipeline {
             steps {
                 docker {
                     image 'docker:20.10.11-dind'
+                    reuseNode true
                 }
             }
         }
