@@ -3,9 +3,15 @@ pipeline {
         docker { image 'docker:20.10.11-dind' }
     }
     stages {
-        stage('build') {
+        stage('version') {
             steps {
                 sh 'docker --version'
+            }
+        stage('build') {
+            steps {
+                docker {
+                    image 'docker:20.10.11-dind'
+                }
             }
         }
     }
