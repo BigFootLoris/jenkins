@@ -16,15 +16,15 @@ pipeline {
                 }           
             }
         }
-        stage('push')
-        {
+        stage('push') {
             when {
                 branch 'main'
-                steps {
-                    script {
-                        docker.withRegistry('', 'DOCKERHUB_TOKEN')
-                        dockerImage.push("bigfootloris/docker:${env.BUILD_ID}")
-                    }
+            }
+            
+            steps {
+                script {
+                    docker.withRegistry('', 'DOCKERHUB_TOKEN')
+                    dockerImage.push("bigfootloris/docker:${env.BUILD_ID}")
                 }
             }
         }
