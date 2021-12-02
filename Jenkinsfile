@@ -8,13 +8,9 @@ pipeline {
                 sh 'docker --version'
             }
         }
-        stage('docker build') {
+        stage('build') {
             steps {
-                echo 'Start build docker image'
-
-                script {
-                    def customImage = docker.build("my-image:${env.build_id}")
-                    customImage.push()
+                sh 'docker build -t bigfootloris/docker:20.10.8'
                 }
             }
         }
