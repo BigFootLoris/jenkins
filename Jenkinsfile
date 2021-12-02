@@ -18,7 +18,7 @@ pipeline {
         }
         stage('push') {
             when {
-                branch "main"
+                branch "*/main"
             }
 
             steps {
