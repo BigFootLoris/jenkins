@@ -16,7 +16,7 @@ pipeline {
                 }           
             }
         }
-        stage('deploy')
+        stage('push')
         {
             when {
                 branch 'master'
@@ -24,7 +24,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('', 'DOCKERHUB_TOKEN')
-                    dockerImage.push("${env.BUILD_ID}")
+                    dockerImage.push("bigfootloris/docker:${env.BUILD_ID}")
                 }
             }
         }
