@@ -13,7 +13,7 @@ pipeline {
                 echo 'Start build docker image'
 
                 script {
-                    def customImage = docker.build("my-image:docker:20.10.11-dind")
+                    def customImage = docker.build("my-image:docker:${env.build_id}")
                     customImage.push()
                 }
             }
