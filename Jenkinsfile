@@ -19,7 +19,7 @@ pipeline {
         stage('push')
         {
             when {
-                branch 'master'
+                branch 'main'
             }
             steps {
                 script {
