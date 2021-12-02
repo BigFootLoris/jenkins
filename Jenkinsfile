@@ -20,7 +20,6 @@ pipeline {
             when {
                 branch "*/main"
             }
-
             steps {
                 script {
                     docker.withRegistry('', 'DOCKERHUB_TOKEN')
