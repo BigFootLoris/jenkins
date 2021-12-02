@@ -1,18 +1,11 @@
 pipeline {
     agent {
-        docker { image 'docker:20.10.11-dind' }
+        docker { image 'node:14-alpine' }
     }
     stages {
-        stage('version') {
+        stage('Test') {
             steps {
-                sh 'docker --version'
-            }
-        stage('build') {
-            steps {
-                docker {
-                    image 'docker:20.10.11-dind'
-                    reuseNode true
-                }
+                sh 'node --version'
             }
         }
     }
