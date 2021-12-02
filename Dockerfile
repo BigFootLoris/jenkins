@@ -10,8 +10,8 @@ RUN apt-get update \
     && apt-get install -y curl zip \
     && curl --silent https://download.docker.com/linux/static/stable/x86_64/docker-${DOCKER_VERSION}.tgz -o docker.tgz \
     && tar xzf docker.tgz \
-    && curl -- silent -L https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose \
-    && cmod +x /usr/local/bin/docker-compose \
+    && curl --silent https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose \
+    && chmod +x /usr/local/bin/docker-compose \
     && curl --silent https://awscli.amazonaws.com/awscli-exe-linux-x86_64-${AWSCLI_VERSION}.zip -o awscliv2.zip \
     && unzip awscliv2.zip
 
