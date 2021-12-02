@@ -1,10 +1,5 @@
 pipeline {
-    agent {
-        docker { 
-            image 'docker:20.10.11-dind' 
-            args '-v /var/run/docker.sock:/var/run/docker.sock'
-        }
-    }
+    agent any
     stages {
         stage('docker version') {
             steps {
@@ -13,7 +8,9 @@ pipeline {
         }
         stage('build') {
             steps {
-                sh 'docker build -t bigfootloris/docker:20.10.8 .'
+                script {
+                    def customImage = docker.build("bigfootloris/docker:${env.BUILD_ID}")
+                }           
             }
         }
     }
