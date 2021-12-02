@@ -10,7 +10,7 @@ pipeline {
         }
         stage('build') {
             steps {
-                sh 'docker build -t bigfootloris/docker:20.10.8'
+                sh 'docker build -t bigfootloris/docker:20.10.8 .'
             }
         }
     }
